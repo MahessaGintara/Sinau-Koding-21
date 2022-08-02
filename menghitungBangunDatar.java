@@ -1,51 +1,47 @@
 import java.util.Scanner;
 
 public class menghitungBangunDatar {
-    public static Scanner input = new Scanner(System.in);
-    
+    static Scanner input = new Scanner(System.in);
+    static int menu = 100;
+
     //? Awal Program
     public static void main(String[] args) {
 
-        //? pemanggilan function menu
-        menu();
+        while (menu <= 100){
+            System.out.println("================== [ Menu ] ==================");
+            System.out.println("1. Persegi");
+            System.out.println("2. Persegi Panjang");
+            System.out.println("3. Linkaran");
+            System.out.println("4. Keluar");
+            System.out.println("==============================================");
+            System.out.print("Masukkan pilihan anda : ");
+            menu = input.nextInt();
+
+            if(menu == 1){
+                persegi();
+            } else if (menu == 2){
+                persegiPanjang();
+            } else if (menu == 3){
+                lingkaran();
+            } else if (menu == 4){
+                System.exit(0);
+            }else {
+                System.out.println("Pilihan tidak ada");
+            }
+        }
+
 
         input.close();
         System.exit(0);
-    }
-
-    //? menampilkan menu
-    static void menu(){
-        System.out.println("================== [ Menu ] ==================");
-        System.out.println("1. Persegi");
-        System.out.println("2. Persegi Panjang");
-        System.out.println("3. Linkaran");
-        System.out.println("4. Keluar");
-        System.out.println("==============================================");
-        System.out.print("Masukkan pilihan anda : ");
-        int pilihan = input.nextInt();
-
-        if(pilihan == 1){
-            persegi();
-        } else if (pilihan == 2){
-            persegiPanjang();
-        } else if (pilihan == 3){
-            lingkaran();
-        } else if (pilihan == 4){
-            System.exit(0);
-        }else {
-            System.out.println("Pilihan tidak ada");
-            menu();
-        } 
-        
     }
 
     static void pertanyaankembali(){
         System.out.print("Apakah anda ingin menghitung lagi? (y/n) : ");
         String jawab = input.next();
         if(jawab.equals("y")){
-            menu();
+            menu = 100;
         } else if(jawab.equals("n")){
-            System.exit(0);
+            menu = 999;
         } else {
             System.out.println("Pilihan tidak ada");
         }
