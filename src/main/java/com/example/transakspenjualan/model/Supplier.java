@@ -24,7 +24,7 @@ public class Supplier {
     @Column(name = "alamat")
     private String alamat;
 
-    @OneToMany(mappedBy = "supplier")
-    private Collection<Barang> barangs;
+    // @OneToMany(mappedBy = "supplier")
+    // private Collection<Barang> barangs;
 
 }

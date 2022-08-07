@@ -24,6 +24,6 @@ public class Pembeli {
     @Column(name = "alamat")
     private String alamat;
 
-    @OneToMany(mappedBy = "pembeli")
-    private Collection<Transaksi> transaksis;
+    // @OneToMany(mappedBy = "pembeli")
+    // private Collection<Transaksi> transaksis;
 }

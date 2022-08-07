@@ -24,7 +24,7 @@ public class Barang {
     @Column(name = "stok")
     private Integer stok;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "supplier_id")
     private Supplier supplier;
 

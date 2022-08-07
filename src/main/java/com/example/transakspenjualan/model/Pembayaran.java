@@ -1,5 +1,6 @@
 package com.example.transakspenjualan.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,7 +22,8 @@ public class Pembayaran {
     @Column
     private Double total;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @OneToOne(fetch = FetchType.LAZY ,cascade = CascadeType.MERGE)
     @JoinColumn (name = "id_transaksi")
     private Transaksi transaksi;
 }
