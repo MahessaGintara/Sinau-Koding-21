@@ -29,8 +29,7 @@ public class Transaksi  implements Serializable {
 
     @Column
     private String keterangan;
-
-    @Transient
+    
     @OneToOne(mappedBy = "transaksi", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     private Pembayaran pembayaran;
 }
