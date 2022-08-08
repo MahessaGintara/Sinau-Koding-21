@@ -1,5 +1,7 @@
 package com.example.transakspenjualan.service;
 
+import com.example.transakspenjualan.dto.PembeliDTO;
+import com.example.transakspenjualan.mapper.PembeliMapper;
 import com.example.transakspenjualan.model.Pembeli;
 import com.example.transakspenjualan.repository.PembeliRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +15,13 @@ public class PembeliService {
     PembeliRepository pembeliRepository;
 
     public List<Pembeli> getAllPembeli() {
-        return pembeliRepository.findAll();
+        return PembeliMapper.INSTANCE.toListEntity(pembeliRepository.findAll());
     }
 
-    public Pembeli createPembeli(Pembeli pembeli) {
-        return pembeliRepository.save(pembeli);
+    public PembeliDTO createPembeli(PembeliDTO pembeli) {
+        Pembeli pembeli1 = PembeliMapper.INSTANCE.toEntity(pembeli);
+        pembeli1 = pembeliRepository.save(pembeli1);
+        return PembeliMapper.INSTANCE.toDto(pembeli1);
     }
 
     public void deletePembeli(Integer id) {

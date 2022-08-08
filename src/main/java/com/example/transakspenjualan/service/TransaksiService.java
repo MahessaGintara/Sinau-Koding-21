@@ -1,5 +1,7 @@
 package com.example.transakspenjualan.service;
 
+import com.example.transakspenjualan.dto.TransaksiDTO;
+import com.example.transakspenjualan.mapper.TransaksiMapper;
 import com.example.transakspenjualan.model.Transaksi;
 import com.example.transakspenjualan.repository.TransaksiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +14,14 @@ public class TransaksiService {
     @Autowired
     TransaksiRepository transaksiRepository;
 
-    public List<Transaksi> getAllTransaksi() {
-        return transaksiRepository.findAll();
+    public List<TransaksiDTO> getAllTransaksi() {
+        return TransaksiMapper.INSTANCE.toListDto(transaksiRepository.findAll());
     }
 
-    public Transaksi createTransaksi(Transaksi transaksi){
-        return transaksiRepository.save(transaksi);
+    public TransaksiDTO createTransaksi(TransaksiDTO transaksi){
+        Transaksi transaksi1 = TransaksiMapper.INSTANCE.toEntity(transaksi);
+        transaksi1 = transaksiRepository.save(transaksi1);
+        return TransaksiMapper.INSTANCE.toDto(transaksi1);
     }
 
     public void deleteTransaksi(Integer id){

@@ -1,5 +1,7 @@
 package com.example.transakspenjualan.service;
 
+import com.example.transakspenjualan.dto.PembayaranDTO;
+import com.example.transakspenjualan.mapper.PembayaranMapper;
 import com.example.transakspenjualan.model.Pembayaran;
 import com.example.transakspenjualan.repository.PembayaranRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +14,14 @@ public class PembayaranService {
     @Autowired
     PembayaranRepository pembayaranRepository;
 
-    public List<Pembayaran> getAllPembayaran() {
-        return pembayaranRepository.findAll();
+    public List<PembayaranDTO> getAllPembayaran() {
+        return PembayaranMapper.INSTANCE.toListDto(pembayaranRepository.findAll());
     }
 
-    public Pembayaran createPembayaran(Pembayaran pembayaran) {
-        return pembayaranRepository.save(pembayaran);
+    public PembayaranDTO createPembayaran(PembayaranDTO pembayaran) {
+        Pembayaran pembayaran1 = PembayaranMapper.INSTANCE.toEntity(pembayaran);
+        pembayaran1 = pembayaranRepository.save(pembayaran1);
+        return PembayaranMapper.INSTANCE.toDto(pembayaran1);
     }
 
     public void deletePembayaran(Integer id) {

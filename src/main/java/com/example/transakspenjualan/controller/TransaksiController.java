@@ -1,6 +1,7 @@
 package com.example.transakspenjualan.controller;
 
 
+import com.example.transakspenjualan.dto.TransaksiDTO;
 import com.example.transakspenjualan.model.Transaksi;
 import com.example.transakspenjualan.service.TransaksiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class TransaksiController {
     }
 
     @PostMapping
-    public ResponseEntity<?>  createTransaksi(@RequestBody Transaksi transaksi) {
+    public ResponseEntity<?>  createTransaksi(@RequestBody TransaksiDTO transaksi) {
         return ResponseEntity.ok(transaksiService.createTransaksi(transaksi));
     }
 

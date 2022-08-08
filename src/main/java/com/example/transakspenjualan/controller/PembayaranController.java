@@ -1,5 +1,6 @@
 package com.example.transakspenjualan.controller;
 
+import com.example.transakspenjualan.dto.PembayaranDTO;
 import com.example.transakspenjualan.model.Pembayaran;
 import com.example.transakspenjualan.service.PembayaranService;
 import com.example.transakspenjualan.service.SupplierService;
@@ -20,7 +21,7 @@ public class PembayaranController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createPembayaran(@RequestBody Pembayaran pembayaran) {
+    public ResponseEntity<?> createPembayaran(@RequestBody PembayaranDTO pembayaran) {
         return ResponseEntity.ok(pembayaranService.createPembayaran(pembayaran));
     }
 

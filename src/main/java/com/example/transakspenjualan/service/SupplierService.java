@@ -1,6 +1,8 @@
 package com.example.transakspenjualan.service;
 
 
+import com.example.transakspenjualan.dto.SupplierDTO;
+import com.example.transakspenjualan.mapper.SupplierMapper;
 import com.example.transakspenjualan.model.Supplier;
 import com.example.transakspenjualan.repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,14 +15,14 @@ public class SupplierService {
     @Autowired
     SupplierRepository supplierRepository;
 
-    public List<Supplier> getAllSupplier() {
-        return supplierRepository.findAll();
+    public List<SupplierDTO> getAllSupplier() {
+        return SupplierMapper.INSTANCE.toListDto(supplierRepository.findAll());
     }
 
-    public Supplier createSupplier(Supplier supplier) {
-        Supplier supplier1 = supplier;
+    public SupplierDTO createSupplier(SupplierDTO supplier) {
+        Supplier supplier1 = SupplierMapper.INSTANCE.toEntity(supplier);
         supplier1 = supplierRepository.save(supplier1);
-        return supplier1;
+        return SupplierMapper.INSTANCE.toDto(supplier1);
     }
 
     public void deleteSupplier(Integer id) {

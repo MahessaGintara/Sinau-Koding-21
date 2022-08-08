@@ -1,5 +1,6 @@
 package com.example.transakspenjualan.controller;
 
+import com.example.transakspenjualan.dto.SupplierDTO;
 import com.example.transakspenjualan.model.Supplier;
 import com.example.transakspenjualan.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class SupplierController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createSupplier(@RequestBody Supplier supplier) {
+    public ResponseEntity<?> createSupplier(@RequestBody SupplierDTO supplier) {
         return ResponseEntity.ok(supplierService.createSupplier(supplier));
     }
 

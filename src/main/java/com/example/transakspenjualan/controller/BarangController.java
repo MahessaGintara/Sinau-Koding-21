@@ -1,5 +1,6 @@
 package com.example.transakspenjualan.controller;
 
+import com.example.transakspenjualan.dto.BarangDTO;
 import com.example.transakspenjualan.model.Barang;
 import com.example.transakspenjualan.service.BarangService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class BarangController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createBarang(@RequestBody Barang barang) {
+    public ResponseEntity<?> createBarang(@RequestBody BarangDTO barang) {
         return ResponseEntity.ok(barangService.createBarang(barang));
     }
 
