@@ -16,6 +16,7 @@ public class BarangService {
     BarangRepository barangRepository;
 
     public List<BarangDTO> getAllBarang() {
+
         return BarangMapper.INSTANCE.toListDto(barangRepository.findAll());
     }
 
@@ -25,8 +26,16 @@ public class BarangService {
         return BarangMapper.INSTANCE.toDto(barang1);
     }
 
-    public void deleteBarang(Integer id) {
-        barangRepository.deleteById(id);
+    public boolean deleteBarang(Integer id) {
+        Barang barang = barangRepository.findById(id).orElseThrow(null);
+        barangRepository.delete(barang);
+
+        try {
+            barangRepository.delete(barang);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public Barang updateBarang(Integer id, Barang barang) {
@@ -36,5 +45,10 @@ public class BarangService {
         barangToUpdate.setStok(barang.getStok() != null ? barang.getStok() : barangToUpdate.getStok());
         barangToUpdate.setSupplier(barang.getSupplier() != null ? barang.getSupplier() : barangToUpdate.getSupplier());
         return barangRepository.save(barangToUpdate);
+    }
+
+    public Object getBarangById(Integer id) {
+        Barang barang = barangRepository.findById(id).orElseThrow(null);
+        return BarangMapper.INSTANCE.toDto(barang);
     }
 }

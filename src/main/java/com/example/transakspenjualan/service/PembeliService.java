@@ -24,8 +24,17 @@ public class PembeliService {
         return PembeliMapper.INSTANCE.toDto(pembeli1);
     }
 
-    public void deletePembeli(Integer id) {
-        pembeliRepository.deleteById(id);
+    public boolean deletePembeli(Integer id) {
+        Pembeli pembeli = pembeliRepository.findById(id).orElseThrow(null);
+        pembeliRepository.delete(pembeli);
+
+        try {
+            pembeliRepository.delete(pembeli);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+
     }
 
     public Pembeli updatePembeli(Integer id, Pembeli pembeli) {
@@ -34,5 +43,10 @@ public class PembeliService {
         pembeliToUpdate.setNoTelp(pembeli.getNoTelp() != null ? pembeli.getNoTelp() : pembeliToUpdate.getNoTelp());
         pembeliToUpdate.setAlamat(pembeli.getAlamat() != null ? pembeli.getAlamat() : pembeliToUpdate.getAlamat());
         return pembeliRepository.save(pembeliToUpdate);
+    }
+
+    public PembeliDTO getPembeliById(Integer id) {
+        Pembeli pembeli = pembeliRepository.findById(id).orElseThrow(null);
+        return PembeliMapper.INSTANCE.toDto(pembeli);
     }
 }

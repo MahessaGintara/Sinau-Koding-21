@@ -1,10 +1,12 @@
 package com.example.transakspenjualan.controller;
 
+import com.example.transakspenjualan.common.Response;
 import com.example.transakspenjualan.dto.PembayaranDTO;
 import com.example.transakspenjualan.model.Pembayaran;
 import com.example.transakspenjualan.service.PembayaranService;
 import com.example.transakspenjualan.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,24 +18,33 @@ public class PembayaranController {
     PembayaranService pembayaranService;
 
     @GetMapping
-    public ResponseEntity<?> getAllPembayaran() {
-        return ResponseEntity.ok(pembayaranService.getAllPembayaran());
+    public Response getAllPembayaran() {
+
+        return new Response(pembayaranService.getAllPembayaran(),pembayaranService.getAllPembayaran().size(), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<?> createPembayaran(@RequestBody PembayaranDTO pembayaran) {
-        return ResponseEntity.ok(pembayaranService.createPembayaran(pembayaran));
+    public Response createPembayaran(@RequestBody PembayaranDTO pembayaran) {
+        return new Response(pembayaranService.createPembayaran(pembayaran), "Data Berhasil Disimpan", HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletePembayaran(@PathVariable Integer id) {
-        pembayaranService.deletePembayaran(id);
-        return ResponseEntity.ok("Pembayaran berhasil dihapus");
+    public Response deletePembayaran(@PathVariable Integer id) {
+        if(pembayaranService.deletePembayaran(id)){
+            return new Response("Data Berhasil Dihapus", HttpStatus.OK);
+        }else {
+            return new Response("Data Gagal Dihapus", HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updatePembayaran(@PathVariable Integer id,@RequestBody Pembayaran pembayaran) {
         return ResponseEntity.ok(pembayaranService.updatePembayaran(id, pembayaran));
+    }
+
+    @GetMapping("/find-by-id/{id}")
+    public Response getPembayaranById(@PathVariable Integer id) {
+        return new Response(pembayaranService.getPembayaranById(id), "Data Berhasil Ditemukan", HttpStatus.OK);
     }
 
 }

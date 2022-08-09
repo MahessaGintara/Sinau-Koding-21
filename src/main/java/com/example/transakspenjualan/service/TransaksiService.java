@@ -24,8 +24,17 @@ public class TransaksiService {
         return TransaksiMapper.INSTANCE.toDto(transaksi1);
     }
 
-    public void deleteTransaksi(Integer id){
-        transaksiRepository.deleteById(id);
+    public boolean deleteTransaksi(Integer id){
+        Transaksi transaksi = transaksiRepository.findById(id).orElseThrow(null);
+        transaksiRepository.delete(transaksi);
+
+        try {
+            transaksiRepository.delete(transaksi);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
     }
 
     public Transaksi updateTransaksi(Integer id, Transaksi transaksi) {
@@ -33,5 +42,10 @@ public class TransaksiService {
         transaksiToUpdate.setTglTransaksi(transaksi.getTglTransaksi() != null ? transaksi.getTglTransaksi() : transaksiToUpdate.getTglTransaksi());
         transaksiToUpdate.setKeterangan(transaksi.getKeterangan() != null ? transaksi.getKeterangan() : transaksiToUpdate.getKeterangan());
         return transaksiRepository.save(transaksiToUpdate);
+    }
+
+    public TransaksiDTO getTransaksiById(Integer id){
+        Transaksi transaksi = transaksiRepository.findById(id).orElseThrow(null);
+        return TransaksiMapper.INSTANCE.toDto(transaksi);
     }
 }

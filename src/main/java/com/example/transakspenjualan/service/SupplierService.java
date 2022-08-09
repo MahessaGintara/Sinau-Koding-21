@@ -25,8 +25,16 @@ public class SupplierService {
         return SupplierMapper.INSTANCE.toDto(supplier1);
     }
 
-    public void deleteSupplier(Integer id) {
-        supplierRepository.deleteById(id);
+    public boolean deleteSupplier(Integer id) {
+        Supplier supplier = supplierRepository.findById(id).orElseThrow(null);
+        supplierRepository.delete(supplier);
+
+        try {
+            supplierRepository.delete(supplier);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public Supplier updateSupplier(Integer id, Supplier supplier) {
@@ -35,5 +43,10 @@ public class SupplierService {
         supplierToUpdate.setNoTelp(supplier.getNoTelp() != null ? supplier.getNoTelp() : supplierToUpdate.getNoTelp());
         supplierToUpdate.setAlamat(supplier.getAlamat() != null ? supplier.getAlamat() : supplierToUpdate.getAlamat());
         return supplierRepository.save(supplierToUpdate);
+    }
+
+    public SupplierDTO getSupplierById(Integer id) {
+        Supplier supplier = supplierRepository.findById(id).orElseThrow(null);
+        return SupplierMapper.INSTANCE.toDto(supplier);
     }
 }

@@ -24,8 +24,16 @@ public class PembayaranService {
         return PembayaranMapper.INSTANCE.toDto(pembayaran1);
     }
 
-    public void deletePembayaran(Integer id) {
-        pembayaranRepository.deleteById(id);
+    public boolean deletePembayaran(Integer id) {
+        Pembayaran pembayaran = pembayaranRepository.findById(id).orElseThrow(null);
+        pembayaranRepository.delete(pembayaran);
+
+        try {
+            pembayaranRepository.delete(pembayaran);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public Pembayaran updatePembayaran(Integer id, Pembayaran pembayaran) {
@@ -33,5 +41,10 @@ public class PembayaranService {
         pembayaranToUpdate.setTglBayar(pembayaran.getTglBayar() != null ? pembayaran.getTglBayar() : pembayaranToUpdate.getTglBayar());
         pembayaranToUpdate.setTotal(pembayaran.getTotal() != null ? pembayaran.getTotal() : pembayaranToUpdate.getTotal());
         return pembayaranRepository.save(pembayaranToUpdate);
+    }
+
+    public PembayaranDTO getPembayaranById(Integer id) {
+        Pembayaran pembayaran = pembayaranRepository.findById(id).orElseThrow(null);
+        return PembayaranMapper.INSTANCE.toDto(pembayaran);
     }
 }
