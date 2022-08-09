@@ -1,7 +1,7 @@
 package com.example.transakspenjualan.service;
 
-import com.example.transakspenjualan.dto.PembeliDTO;
-import com.example.transakspenjualan.mapper.PembeliMapper;
+import com.example.transakspenjualan.model.dto.PembeliDTO;
+import com.example.transakspenjualan.model.mapper.PembeliMapper;
 import com.example.transakspenjualan.model.Pembeli;
 import com.example.transakspenjualan.repository.PembeliRepository;
 import org.springframework.beans.factory.annotation.Autowired;

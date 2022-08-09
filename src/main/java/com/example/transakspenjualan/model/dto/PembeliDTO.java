@@ -1,4 +1,4 @@
-package com.example.transakspenjualan.dto;
+package com.example.transakspenjualan.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.example.transakspenjualan.dto;
+package com.example.transakspenjualan.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import java.util.Date;
 public class PembayaranDTO {
     private Integer id;
 
-    private TransaksiDTO transaksi;
+    // private TransaksiDTO transaksi;
 
     private Double total;
 

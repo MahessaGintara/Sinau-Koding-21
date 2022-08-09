@@ -1,10 +1,9 @@
 package com.example.transakspenjualan.controller;
 
 import com.example.transakspenjualan.common.Response;
-import com.example.transakspenjualan.dto.PembayaranDTO;
+import com.example.transakspenjualan.model.dto.PembayaranDTO;
 import com.example.transakspenjualan.model.Pembayaran;
 import com.example.transakspenjualan.service.PembayaranService;
-import com.example.transakspenjualan.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +18,6 @@ public class PembayaranController {
 
     @GetMapping
     public Response getAllPembayaran() {
-
         return new Response(pembayaranService.getAllPembayaran(),pembayaranService.getAllPembayaran().size(), HttpStatus.OK);
     }
 

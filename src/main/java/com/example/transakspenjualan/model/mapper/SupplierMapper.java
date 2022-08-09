@@ -1,7 +1,7 @@
-package com.example.transakspenjualan.mapper;
+package com.example.transakspenjualan.model.mapper;
 
 
-import com.example.transakspenjualan.dto.SupplierDTO;
+import com.example.transakspenjualan.model.dto.SupplierDTO;
 import com.example.transakspenjualan.model.Supplier;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

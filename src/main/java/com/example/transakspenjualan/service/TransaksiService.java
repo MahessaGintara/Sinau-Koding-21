@@ -1,7 +1,7 @@
 package com.example.transakspenjualan.service;
 
-import com.example.transakspenjualan.dto.TransaksiDTO;
-import com.example.transakspenjualan.mapper.TransaksiMapper;
+import com.example.transakspenjualan.model.dto.TransaksiDTO;
+import com.example.transakspenjualan.model.mapper.TransaksiMapper;
 import com.example.transakspenjualan.model.Transaksi;
 import com.example.transakspenjualan.repository.TransaksiRepository;
 import org.springframework.beans.factory.annotation.Autowired;

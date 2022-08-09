@@ -1,7 +1,7 @@
 package com.example.transakspenjualan.controller;
 
 import com.example.transakspenjualan.common.Response;
-import com.example.transakspenjualan.dto.BarangDTO;
+import com.example.transakspenjualan.model.dto.BarangDTO;
 import com.example.transakspenjualan.model.Barang;
 import com.example.transakspenjualan.service.BarangService;
 import org.springframework.beans.factory.annotation.Autowired;
