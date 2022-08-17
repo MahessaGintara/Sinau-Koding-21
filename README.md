@@ -20,19 +20,19 @@ Semua orang dapat menggunakan Route ini dengan bebas
 ### URL Terbatas
 Hanya user dengan role tertentu yang dapat mengakses
 
-|Metode   |URL                    |Tipe                  |Deskripsi                | Anggota     |Petugas         | Admin | 
-|:------  |:--------------------- |:-------------------- |:----------------------- |:-------     | :------------- | :------------ |
-| GET     | `/buku/${query}`      | String               | Mencari Buku            | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) |
-| POST    | `/buku`               | Buku                 | Menabahkan Buku         | ![#ED1221](https://via.placeholder.com/10/ED1221?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) |
-| DELETE  | `/buku/${id}`         | Integer              | Menghapus Buku          | ![#ED1221](https://via.placeholder.com/10/ED1221?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) |
-| POST    | `/peminjaman`         | Peminjaman           | Menabahkan peminjaman   | ![#ED1221](https://via.placeholder.com/10/ED1221?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) |
-| POST    | `/pengembalian`       | Pengembalian         | Menabahkan pengembalian | ![#ED1221](https://via.placeholder.com/10/ED1221?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) |
-| PUT     | `/peminjaman/${id}`   | Integer/Peminjaman   | Menabahkan peminjaman   | ![#ED1221](https://via.placeholder.com/10/ED1221?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) |
-| PUT     | `/pengembalian/${id}` | Integer/pengembalian | Menabahkan pengembalian | ![#ED1221](https://via.placeholder.com/10/ED1221?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) |
-| POST    | `/anggota`            | Anggota              | Menabahkan anggota      | ![#ED1221](https://via.placeholder.com/10/ED1221?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) |
-| POST    | `/user`               | User                 | Menabahkan user         | ![#ED1221](https://via.placeholder.com/10/ED1221?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) |
-| POST    | `/user/with-anggota`  | UserWithAnggota      | Menabahkan user anggota | ![#ED1221](https://via.placeholder.com/10/ED1221?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) |
-| POST    | `/user/with-pegawai`  | UserWithPegawai      | Menabahkan user pegawai | ![#ED1221](https://via.placeholder.com/10/ED1221?text=+) | ![#ED1221](https://via.placeholder.com/10/ED1221?text=+) | ![#21ED12](https://via.placeholder.com/10/21ED12?text=+) |
+|Metode   |URL                    |Tipe                  |Deskripsi                | Anggota                                                  |Petugas         | Admin | 
+|:------  |:--------------------- |:-------------------- |:----------------------- |:---------------------------------------------------------| :------------- | :------------ |
+| GET     | `/buku/${query}`      | String               | Mencari Buku            | ![#21ED12](https://via.placeholder.com/10/21ED12.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) |
+| POST    | `/buku`               | Buku                 | Menabahkan Buku         | ![#ED1221](https://via.placeholder.com/10/ED1221.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) |
+| DELETE  | `/buku/${id}`         | Integer              | Menghapus Buku          | ![#ED1221](https://via.placeholder.com/10/ED1221.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) |
+| POST    | `/peminjaman`         | Peminjaman           | Menabahkan peminjaman   | ![#ED1221](https://via.placeholder.com/10/ED1221.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) |
+| POST    | `/pengembalian`       | Pengembalian         | Menabahkan pengembalian | ![#ED1221](https://via.placeholder.com/10/ED1221.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) |
+| PUT     | `/peminjaman/${id}`   | Integer/Peminjaman   | Menabahkan peminjaman   | ![#ED1221](https://via.placeholder.com/10/ED1221.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) |
+| PUT     | `/pengembalian/${id}` | Integer/pengembalian | Menabahkan pengembalian | ![#ED1221](https://via.placeholder.com/10/ED1221.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) |
+| POST    | `/anggota`            | Anggota              | Menabahkan anggota      | ![#ED1221](https://via.placeholder.com/10/ED1221.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) |
+| POST    | `/user`               | User                 | Menabahkan user         | ![#ED1221](https://via.placeholder.com/10/ED1221.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) |
+| POST    | `/user/with-anggota`  | UserWithAnggota      | Menabahkan user anggota | ![#ED1221](https://via.placeholder.com/10/ED1221.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) |
+| POST    | `/user/with-pegawai`  | UserWithPegawai      | Menabahkan user pegawai | ![#ED1221](https://via.placeholder.com/10/ED1221.png)    | ![#ED1221](https://via.placeholder.com/10/ED1221.png) | ![#21ED12](https://via.placeholder.com/10/21ED12.png) |
 
 ### Deskripsi
 Penjelasan object setiap request
